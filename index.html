@@ -456,7 +456,7 @@ header{padding:20px 22px 0;display:flex;align-items:center;justify-content:space
         <span class="shake-dot-live" id="shakeDotLive"></span>
         <span id="shakeTitle">Shake Detection</span>
       </div>
-      <div class="shake-desc" id="shakeDesc">Phone ko 3x shake karein — SOS auto-bhejega</div>
+      <div class="shake-desc" id="shakeDesc">Shake your phone 3x — SOS will be sent automatically</div>
     </div>
     <button class="shake-toggle" id="shakeToggleBtn" onclick="toggleShake()">Enable</button>
   </div>
@@ -555,9 +555,9 @@ header{padding:20px 22px 0;display:flex;align-items:center;justify-content:space
         <button class="rc-btn rc-start" onclick="startRecording()" id="btnStart" title="Start Recording">⏺</button>
         <button class="rc-btn rc-pause" onclick="pauseRecording()" id="btnPause" disabled title="Pause / Resume">⏸</button>
       </div>
-      <div class="rec-note">🔒 Recordings sirf aapke device par save hoti hain — koi cloud nahi</div>
+      <div class="rec-note">🔒 Recordings are saved only on your device — no cloud upload</div>
       <div class="recordings-list" id="recordingsList">
-        <div class="no-recs">Abhi koi recording nahi hai</div>
+        <div class="no-recs">No recordings yet</div>
       </div>
     </div>
   </div>
@@ -565,27 +565,27 @@ header{padding:20px 22px 0;display:flex;align-items:center;justify-content:space
   <!-- FAKE CALL PANEL -->
   <div class="fake-panel" id="fakePanel">
     <div class="fp-body">
-      <div class="fp-section-lbl">Caller ka Naam</div>
+      <div class="fp-section-lbl">Caller Name</div>
       <input type="text" class="fp-input" id="fakeCallerName" placeholder="e.g. Priya (Mom)" value="Priya (Mom)">
       <div class="fp-section-lbl">Quick Presets</div>
       <div class="fp-presets">
         <div class="fpreset" onclick="setPreset('Mom')">Mom</div>
         <div class="fpreset" onclick="setPreset('Dad')">Dad</div>
         <div class="fpreset" onclick="setPreset('Priya')">Priya</div>
-        <div class="fpreset" onclick="setPreset('Rahul Bhai')">Rahul Bhai</div>
+        <div class="fpreset" onclick="setPreset('Rahul (Brother)')">Brother</div>
         <div class="fpreset" onclick="setPreset('Office Boss')">Boss</div>
       </div>
-      <div class="fp-section-lbl">Call kab aaye</div>
+      <div class="fp-section-lbl">When to receive the call</div>
       <div class="fp-delay-row">
-        <button class="fd-btn active" onclick="setDelay(0,this)">Abhi</button>
+        <button class="fd-btn active" onclick="setDelay(0,this)">Now</button>
         <button class="fd-btn" onclick="setDelay(5,this)">5 sec</button>
         <button class="fd-btn" onclick="setDelay(10,this)">10 sec</button>
         <button class="fd-btn" onclick="setDelay(30,this)">30 sec</button>
         <button class="fd-btn" onclick="setDelay(60,this)">1 min</button>
       </div>
-      <button class="fake-start-btn" onclick="scheduleFakeCall()">📲 Fake Call Schedule Karo</button>
+      <button class="fake-start-btn" onclick="scheduleFakeCall()">📲 Schedule Fake Call</button>
       <div class="fake-pending" id="fakePending">
-        <span id="fakePendingTxt">⏳ Call aa raha hai…</span>
+        <span id="fakePendingTxt">⏳ Call is on its way…</span>
         <button class="cancel-fake-sched" onclick="cancelFakeSched()">Cancel ✕</button>
       </div>
     </div>
@@ -606,12 +606,12 @@ header{padding:20px 22px 0;display:flex;align-items:center;justify-content:space
   <div class="sos-card">
     <div class="sos-card-icon">🆘</div>
     <h2>SOS Alert</h2>
-    <p>Aapki live GPS location sabhi emergency contacts ko SMS se bheji jayegi aur authorities ko notify kiya jayega.</p>
+    <p>Your live GPS location will be sent via SMS to all emergency contacts and authorities will be notified.</p>
     <div class="countdown" id="cdNum">5</div>
-    <div class="cd-lbl">Seconds mein send ho raha hai</div>
+    <div class="cd-lbl">Sending in seconds</div>
     <div class="ov-actions">
       <button class="ov-cancel" onclick="cancelSOS()">Cancel</button>
-      <button class="ov-send" onclick="sendSOSNow()">Abhi Bhejo 🆘</button>
+      <button class="ov-send" onclick="sendSOSNow()">Send Now 🆘</button>
     </div>
   </div>
 </div>
@@ -675,12 +675,12 @@ header{padding:20px 22px 0;display:flex;align-items:center;justify-content:space
 <div class="modal-bg" id="modalBg">
   <div class="modal">
     <h3>Add Contact</h3>
-    <div class="field"><label>Naam</label><input type="text" id="newName" placeholder="e.g. Priya (Mom)"></div>
+    <div class="field"><label>Name</label><input type="text" id="newName" placeholder="e.g. Priya (Mom)"></div>
     <div class="field"><label>Phone Number</label><input type="tel" id="newPhone" placeholder="+91 98765 43210"></div>
-    <div class="field"><label>Rishta</label><input type="text" id="newRole" placeholder="e.g. Family Member"></div>
+    <div class="field"><label>Relationship</label><input type="text" id="newRole" placeholder="e.g. Family Member"></div>
     <div class="modal-actions">
       <button class="m-cancel" onclick="closeModal()">Cancel</button>
-      <button class="m-save" onclick="saveContact()">Save Karo</button>
+      <button class="m-save" onclick="saveContact()">Save</button>
     </div>
   </div>
 </div>
@@ -703,7 +703,7 @@ const AV_COLORS=[
 let contacts=[
   {name:'Priya (Mom)',  phone:'+919876543210', role:'Primary Contact'},
   {name:'Riya',         phone:'+919123456789', role:'Best Friend'},
-  {name:'Arun (Bro)',   phone:'+917000012345', role:'Family Member'},
+  {name:'Arun (Brother)', phone:'+917000012345', role:'Family Member'},
 ];
 
 /* ═══════════════════════════════════════════
@@ -765,7 +765,7 @@ function initMap(){
 
 function startTracking(){
   if(!navigator.geolocation){
-    document.getElementById('locStatus').innerHTML='❌ Geolocation supported nahi hai';
+    document.getElementById('locStatus').innerHTML='❌ Geolocation is not supported';
     return;
   }
   watchId=navigator.geolocation.watchPosition(
@@ -778,15 +778,15 @@ function startTracking(){
         .then(r=>r.json())
         .then(d=>{
           const parts=(d.display_name||'').split(',');
-          document.getElementById('locAddr').textContent=parts.slice(0,3).join(',').trim()||'Location mili';
-        }).catch(()=>{document.getElementById('locAddr').textContent='Location detect hui';});
+          document.getElementById('locAddr').textContent=parts.slice(0,3).join(',').trim()||'Location found';
+        }).catch(()=>{document.getElementById('locAddr').textContent='Location detected';});
       document.getElementById('locCoords').textContent=`${currentLat.toFixed(5)}°N, ${currentLng.toFixed(5)}°E`;
       document.getElementById('locStatus').innerHTML=`✅ <span style="color:var(--green)">Live tracking active</span> · ±${acc}m accuracy`;
       document.getElementById('statusTxt').textContent='Tracking';
     },
     err=>{
       let msg='⚠️ Location unavailable';
-      if(err.code===1)msg='🔒 Permission denied — please allow location';
+      if(err.code===1)msg='🔒 Permission denied — please allow location access';
       if(err.code===2)msg='📡 GPS signal weak';
       document.getElementById('locStatus').innerHTML=msg;
       currentLat=28.6139; currentLng=77.2090;
@@ -803,12 +803,12 @@ function stopTracking(){
 }
 
 function shareLocation(){
-  if(!currentLat){toast('📡 Pehle GPS lock hone do…');return;}
+  if(!currentLat){toast('📡 Please wait for GPS lock…');return;}
   const link=`https://maps.google.com/?q=${currentLat},${currentLng}`;
   if(navigator.clipboard){
-    navigator.clipboard.writeText(link).then(()=>toast('🔗 Location link copy hua! Messages mein paste karein.'));
+    navigator.clipboard.writeText(link).then(()=>toast('🔗 Location link copied! Paste it in Messages.'));
   }else{
-    window.location.href=`sms:?body=${encodeURIComponent('📍 Meri live location: '+link)}`;
+    window.location.href=`sms:?body=${encodeURIComponent('📍 My live location: '+link)}`;
   }
 }
 
@@ -831,7 +831,7 @@ function openSOS(){
 function cancelSOS(){
   clearInterval(cdTimer);
   document.getElementById('sosOv').classList.remove('on');
-  toast('✅ Alert cancel kiya — safe rahein!');
+  toast('✅ Alert cancelled — stay safe!');
 }
 
 function sendSOSNow(){
@@ -839,10 +839,10 @@ function sendSOSNow(){
   document.getElementById('sosOv').classList.remove('on');
   const lat=currentLat||28.6139, lng=currentLng||77.2090;
   const link=`https://maps.google.com/?q=${lat},${lng}`;
-  const msg=encodeURIComponent(`🆘 SOS! Mujhe madad chahiye. Meri location: ${link} — SafeHer se bheja gaya`);
+  const msg=encodeURIComponent(`🆘 SOS! I need help. My location: ${link} — Sent via SafeHer`);
   const nums=contacts.map(c=>c.phone).join(',');
   window.location.href=`sms:${nums}?body=${msg}`;
-  toast('🆘 SOS bheja gaya! Messages app khul raha hai');
+  toast('🆘 SOS sent! Opening Messages app');
   if(!locVisible)toggleLoc();
 }
 
@@ -906,12 +906,12 @@ function saveContact(){
   const name=document.getElementById('newName').value.trim();
   const phone=document.getElementById('newPhone').value.trim();
   const role=document.getElementById('newRole').value.trim()||'Contact';
-  if(!name||!phone){toast('⚠️ Naam aur phone zaroori hai');return;}
+  if(!name||!phone){toast('⚠️ Name and phone number are required');return;}
   contacts.push({name,phone,role});
   renderContacts();
   closeModal();
   ['newName','newPhone','newRole'].forEach(id=>document.getElementById(id).value='');
-  toast(`✅ ${name} emergency contacts mein add hua`);
+  toast(`✅ ${name} added to emergency contacts`);
 }
 document.getElementById('modalBg').addEventListener('click',function(e){if(e.target===this)closeModal();});
 
@@ -932,7 +932,7 @@ function switchRecTab(mode){
 }
 
 async function startRecording(){
-  if(mediaRecorder&&mediaRecorder.state==='recording'){toast('⚠️ Recording pehle se chal rahi hai');return;}
+  if(mediaRecorder&&mediaRecorder.state==='recording'){toast('⚠️ Recording is already in progress');return;}
   try{
     const constraints=recMode==='video'
       ?{video:{facingMode:{ideal:'environment'},width:{ideal:1280},height:{ideal:720}},audio:true}
@@ -947,7 +947,6 @@ async function startRecording(){
     }
 
     recChunks=[];
-    // Pick best supported mime
     const mimes=['video/webm;codecs=vp9,opus','video/webm;codecs=vp8,opus','video/webm',
                   'audio/webm;codecs=opus','audio/webm','audio/ogg;codecs=opus'];
     const mime=mimes.find(m=>MediaRecorder.isTypeSupported(m))||'';
@@ -964,12 +963,12 @@ async function startRecording(){
     },1000);
 
     setRecUI('recording');
-    toast(`🔴 ${recMode==='video'?'Video':'Audio'} recording shuru`);
+    toast(`🔴 ${recMode==='video'?'Video':'Audio'} recording started`);
 
   }catch(err){
-    let msg='⚠️ Permission deny hua';
-    if(err.name==='NotFoundError')msg='⚠️ Microphone/Camera nahi mila';
-    else if(err.name==='NotAllowedError')msg='🔒 Permission deny kiya — please allow karein';
+    let msg='⚠️ Permission denied';
+    if(err.name==='NotFoundError')msg='⚠️ Microphone/Camera not found';
+    else if(err.name==='NotAllowedError')msg='🔒 Permission denied — please allow access';
     toast(msg);
     console.error('Recording error:',err);
   }
@@ -981,12 +980,12 @@ function pauseRecording(){
     mediaRecorder.pause();
     clearInterval(recTimerInt);
     setRecUI('paused');
-    toast('⏸ Recording pause hua');
+    toast('⏸ Recording paused');
   }else if(mediaRecorder.state==='paused'){
     mediaRecorder.resume();
     recTimerInt=setInterval(()=>{recSecs++;document.getElementById('recTimer').textContent=fmtTime(recSecs);},1000);
     setRecUI('recording');
-    toast('▶ Recording resume hua');
+    toast('▶ Recording resumed');
   }
 }
 
@@ -1013,7 +1012,7 @@ function finalizeRecording(){
   const size=blob.size>1024*1024?(blob.size/(1024*1024)).toFixed(1)+' MB':(blob.size/1024).toFixed(0)+' KB';
   recordings.unshift({name,url,duration,size,type:recMode,blob,mimeType:blob.type});
   renderRecordings();
-  toast(`✅ ${recMode==='video'?'Video':'Audio'} save hua (${duration})`);
+  toast(`✅ ${recMode==='video'?'Video':'Audio'} saved (${duration})`);
   document.getElementById('recTimer').textContent='00:00';
 }
 
@@ -1042,7 +1041,7 @@ function setRecUI(state){
 
 function renderRecordings(){
   const el=document.getElementById('recordingsList');
-  if(!recordings.length){el.innerHTML='<div class="no-recs">Abhi koi recording nahi hai</div>';return;}
+  if(!recordings.length){el.innerHTML='<div class="no-recs">No recordings yet</div>';return;}
   el.innerHTML=recordings.map((r,i)=>`
     <div class="rec-item">
       <div class="rec-item-icon">${r.type==='video'?'📹':'🎙️'}</div>
@@ -1061,19 +1060,19 @@ function renderRecordings(){
 function playRec(i){
   const r=recordings[i];
   const a=new Audio(r.url);
-  a.play().then(()=>toast(`▶️ ${r.name} play ho raha hai`)).catch(()=>toast('⚠️ Play error aaya'));
+  a.play().then(()=>toast(`▶️ Playing ${r.name}`)).catch(()=>toast('⚠️ Playback error'));
 }
 function downloadRec(i){
   const r=recordings[i];
   const a=document.createElement('a');
   a.href=r.url; a.download=r.name; a.click();
-  toast(`💾 ${r.name} download hua`);
+  toast(`💾 ${r.name} downloaded`);
 }
 function deleteRec(i){
   URL.revokeObjectURL(recordings[i].url);
   recordings.splice(i,1);
   renderRecordings();
-  toast('🗑️ Recording delete hui');
+  toast('🗑️ Recording deleted');
 }
 function fmtTime(s){return`${String(Math.floor(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`;}
 
@@ -1103,11 +1102,11 @@ function scheduleFakeCall(){
   const pendingEl=document.getElementById('fakePending');
   const pendingTxt=document.getElementById('fakePendingTxt');
   pendingEl.classList.add('on');
-  pendingTxt.textContent=`⏳ "${name}" se call ${remaining}s mein…`;
+  pendingTxt.textContent=`⏳ Call from "${name}" in ${remaining}s…`;
 
   fakeSchedCountdown=setInterval(()=>{
     remaining--;
-    pendingTxt.textContent=`⏳ "${name}" se call ${remaining}s mein…`;
+    pendingTxt.textContent=`⏳ Call from "${name}" in ${remaining}s…`;
     if(remaining<=0)clearInterval(fakeSchedCountdown);
   },1000);
 
@@ -1117,7 +1116,7 @@ function scheduleFakeCall(){
     showIncomingCall(name);
   },fakeDelay*1000);
 
-  toast(`📲 ${fakeDelay}s mein "${name}" se fake call aayega`);
+  toast(`📲 Fake call from "${name}" in ${fakeDelay}s`);
 }
 
 function cancelFakeSched(){
@@ -1125,11 +1124,10 @@ function cancelFakeSched(){
   clearInterval(fakeSchedCountdown);
   fakeSchedTimer=null;
   document.getElementById('fakePending').classList.remove('on');
-  toast('✅ Fake call schedule cancel hua');
+  toast('✅ Fake call schedule cancelled');
 }
 
 function showIncomingCall(name){
-  // Vibrate pattern — incoming call style
   if(navigator.vibrate)navigator.vibrate([500,300,500,300,500,300,500]);
   document.getElementById('incName').textContent=name;
   document.getElementById('incAvatar').textContent=name[0].toUpperCase();
@@ -1139,7 +1137,7 @@ function showIncomingCall(name){
 function declineFakeCall(){
   if(navigator.vibrate)navigator.vibrate(0);
   document.getElementById('incomingOv').classList.remove('on');
-  toast('📵 Fake call decline kiya');
+  toast('📵 Fake call declined');
 }
 
 function acceptFakeCall(){
@@ -1160,7 +1158,7 @@ function acceptFakeCall(){
 function endActiveFakeCall(){
   clearInterval(acTimer);
   document.getElementById('activeCallOv').classList.remove('on');
-  toast('📵 Fake call khatam — aap safe ho!');
+  toast('📵 Fake call ended — you are safe!');
 }
 
 function toggleCtrl(id){
@@ -1182,7 +1180,6 @@ function toggleShake(){
   const desc=document.getElementById('shakeDesc');
 
   if(shakeEnabled){
-    // iOS 13+ needs permission
     if(typeof DeviceMotionEvent!=='undefined'&&typeof DeviceMotionEvent.requestPermission==='function'){
       DeviceMotionEvent.requestPermission()
         .then(res=>{
@@ -1191,32 +1188,32 @@ function toggleShake(){
             btn.textContent='Disable'; btn.classList.add('on');
             dot.classList.add('pulse');
             title.textContent='Shake ON ✓';
-            desc.textContent='Phone ko 3x jhatko — SOS shuru hoga!';
-            toast('📳 Shake ON — 3x shake karein SOS ke liye');
+            desc.textContent='Shake your phone 3x — SOS will activate!';
+            toast('📳 Shake ON — shake 3x to trigger SOS');
           }else{
             shakeEnabled=false;
-            toast('🔒 Motion permission deny hua — Settings mein allow karein');
+            toast('🔒 Motion permission denied — please allow in Settings');
           }
         })
-        .catch(()=>{shakeEnabled=false;toast('⚠️ Permission error aayi');});
+        .catch(()=>{shakeEnabled=false;toast('⚠️ Permission error occurred');});
     }else if(typeof DeviceMotionEvent!=='undefined'){
       window.addEventListener('devicemotion',onShakeEvent,{passive:true});
       btn.textContent='Disable'; btn.classList.add('on');
       dot.classList.add('pulse');
       title.textContent='Shake ON ✓';
-      desc.textContent='Phone ko 3x jhatko — SOS shuru hoga!';
-      toast('📳 Shake ON — 3x shake karein SOS ke liye');
+      desc.textContent='Shake your phone 3x — SOS will activate!';
+      toast('📳 Shake ON — shake 3x to trigger SOS');
     }else{
       shakeEnabled=false;
-      toast('⚠️ Yeh device shake detection support nahi karta');
+      toast('⚠️ This device does not support shake detection');
     }
   }else{
     window.removeEventListener('devicemotion',onShakeEvent);
     btn.textContent='Enable'; btn.classList.remove('on');
     dot.classList.remove('pulse');
     title.textContent='Shake Detection';
-    desc.textContent='Phone ko 3x shake karein — SOS auto-bhejega';
-    toast('📵 Shake detection band kiya');
+    desc.textContent='Shake your phone 3x — SOS will be sent automatically';
+    toast('📵 Shake detection disabled');
   }
 }
 
@@ -1230,19 +1227,19 @@ function onShakeEvent(e){
 
   if(delta>SHAKE_THRESHOLD){
     shakeCount++;
-    document.getElementById('shakeDesc').textContent=`Shake ${shakeCount}/${SHAKES_NEEDED} — aur shake karo!`;
+    document.getElementById('shakeDesc').textContent=`Shake ${shakeCount}/${SHAKES_NEEDED} — keep shaking!`;
     if(shakeResetTimer)clearTimeout(shakeResetTimer);
     shakeResetTimer=setTimeout(()=>{
       shakeCount=0;
-      if(shakeEnabled)document.getElementById('shakeDesc').textContent='Phone ko 3x jhatko — SOS shuru hoga!';
+      if(shakeEnabled)document.getElementById('shakeDesc').textContent='Shake your phone 3x — SOS will activate!';
     },2500);
 
     if(shakeCount>=SHAKES_NEEDED){
       shakeCount=0;
       clearTimeout(shakeResetTimer);
-      if(shakeEnabled)document.getElementById('shakeDesc').textContent='Phone ko 3x jhatko — SOS shuru hoga!';
+      if(shakeEnabled)document.getElementById('shakeDesc').textContent='Shake your phone 3x — SOS will activate!';
       if(navigator.vibrate)navigator.vibrate([200,100,200,100,200]);
-      toast('📳 Shake detected! SOS countdown shuru…');
+      toast('📳 Shake detected! SOS countdown starting…');
       openSOS();
     }
   }
@@ -1268,7 +1265,7 @@ function navClick(el,idx){
   el.classList.add('active');
   if(idx===1)toggleLoc();
   if(idx===2)toggleCallPanel();
-  if(idx===3)toast('⚙️ Settings jald aayegi');
+  if(idx===3)toast('⚙️ Settings coming soon');
 }
 </script>
 </body>
